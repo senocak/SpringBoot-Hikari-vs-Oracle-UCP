@@ -10,7 +10,8 @@ spring:
     username: ${ORACLE_USERNAME:system}
     password: ${ORACLE_PASSWORD:testpassword}
     ddl: ${spring.jpa.hibernate.ddl-auto}
-    ucp:
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    oracleucp:
       connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
       #connection-factory-class-name: oracle.jdbc.replay.OracleDataSourceImpl # If you are using Replay datasource
       sql-for-validate-connection: select * from dual

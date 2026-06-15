@@ -36,15 +36,9 @@ repositories {
 dependencies {
     implementation(dependencyNotation = "org.springframework.boot:spring-boot-starter-web")
     implementation(dependencyNotation = "org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation(dependencyNotation = "com.oracle.database.jdbc:ojdbc11:23.6.0.24.10") {
-        description = "Oracle JDBC Driver"
-    }
-    implementation(dependencyNotation = "com.oracle.database.jdbc:ucp11:23.6.0.24.10"){
-        description = "Oracle Universal Connection Pool"
-    }
-    implementation(dependencyNotation = "com.zaxxer:HikariCP") {
-        description = "Hikari JDBC Connection Pool"
-    }
+    implementation(dependencyNotation = "com.oracle.database.jdbc:ojdbc11:23.6.0.24.10")
+    implementation(dependencyNotation = "com.oracle.database.jdbc:ucp11:23.6.0.24.10")
+    implementation(dependencyNotation = "com.zaxxer:HikariCP")
     implementation(dependencyNotation = "com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation(dependencyNotation = "org.jetbrains.kotlin:kotlin-reflect")
 }
