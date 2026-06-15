@@ -4,4 +4,4 @@
 GET {{baseUrl}}/status
 
 ### compare UCP and Hikari pools
-GET {{baseUrl}}/compare?iterations=1000&concurrency=10&warmup=10
+GET {{baseUrl}}/compare?iterations=100000&concurrency=50&warmup=10
