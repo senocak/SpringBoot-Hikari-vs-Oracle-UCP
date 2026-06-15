@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:8083/v1/pools
+
+### pool status
+GET {{baseUrl}}/status
+
+### compare UCP and Hikari pools
+GET {{baseUrl}}/compare?iterations=1000&concurrency=10&warmup=10

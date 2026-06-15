@@ -1,0 +1,53 @@
+server:
+  port: ${SERVER_PORT:8083}
+
+spring:
+  application:
+    name: SpringKotlinOracle
+  datasource:
+    pool-type: ${DATASOURCE_POOL_TYPE:ucp} # ucp or hikari for the primary JPA datasource
+    url: ${ORACLE_URL:jdbc:oracle:thin:@//localhost:1522/FREEPDB1}
+    username: ${ORACLE_USERNAME:system}
+    password: ${ORACLE_PASSWORD:testpassword}
+    ddl: ${spring.jpa.hibernate.ddl-auto}
+    ucp:
+      connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
+      #connection-factory-class-name: oracle.jdbc.replay.OracleDataSourceImpl # If you are using Replay datasource
+      sql-for-validate-connection: select * from dual
+      connection-pool-name: SpringKotlinOracleConnectionPoolName1
+      initial-pool-size: 15
+      min-pool-size: 10
+      max-pool-size: 30
+      connection-wait-timeout: 30
+      validate-connection-on-borrow: true
+      seconds-to-trust-idle-connection: 1
+    hikari:
+      pool-name: SpringKotlinOracleHikariPool
+      minimum-idle: 10
+      maximum-pool-size: 30
+      connection-timeout: 30000
+      idle-timeout: 60000
+      max-lifetime: 1800000
+      validation-timeout: 5000
+      connection-test-query: select * from dual
+      initialization-fail-timeout: -1
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: false
+        order_updates: true
+        order_inserts: true
+        jdbc:
+          batch_size: 10
+          fetch_size: 10
+    show-sql: false
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  file:
+    name: ./logs/app.log
